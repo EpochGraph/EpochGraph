@@ -1,0 +1,1 @@
+if(window.matchMedia(`(prefers-reduced-motion: reduce)`).matches)for(let e of document.querySelectorAll(`[data-intro-video]`))e.removeAttribute(`autoplay`),e.pause();
