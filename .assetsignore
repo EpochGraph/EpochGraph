@@ -1,0 +1,4 @@
+# Cloudflare（Wrangler）が配らないもの（Issue #604）。Wrangler の設定ファイルが無いので、
+# リポジトリの直下を全部配る。.git まで配ると、Git の記録が見え、25 MiB を超えた pack で
+# ビルドが止まった（2026-10-25）
+.git

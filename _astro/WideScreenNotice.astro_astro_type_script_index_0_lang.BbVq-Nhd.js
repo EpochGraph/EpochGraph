@@ -1,0 +1,1 @@
+var e=`epochgraph.wideScreenNotice.closed`,t=document.getElementById(`wide-notice`);function n(){try{return window.localStorage.getItem(e)===`1`}catch{return!1}}t&&!n()&&t.removeAttribute(`hidden`),document.getElementById(`wide-notice-close`)?.addEventListener(`click`,()=>{t?.setAttribute(`hidden`,``);try{window.localStorage.setItem(e,`1`)}catch{}});

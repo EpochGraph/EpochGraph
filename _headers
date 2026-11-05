@@ -1,0 +1,14 @@
+# Cloudflare の応答のヘッダー（公開の前のチェック WK-46。Issue #514・#486・#539・#541）。
+# CSP: スクリプト・通信・フォントは自分のサイトだけ。ただし Cloudflare のアクセス解析（Web
+# Analytics。Cookie を使わない）は許す。Cloudflare が配信のときにページへ差し込むスクリプト
+# （static.cloudflareinsights.com）と、その送り先（cloudflareinsights.com）。画像は自分のサイトと
+# Wikimedia Commons（カードの画像。Special:FilePath が thumb.wikimedia.org・upload.wikimedia.org
+# へ移す）。スタイルは、Astro がページに埋め込む <style> があるので 'unsafe-inline' を許す。
+# ページに <script> を埋め込むと動かなくなる（スクリプトは Astro の <script>〔別のファイルに
+# なる〕で書く）。
+/*
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://commons.wikimedia.org https://upload.wikimedia.org https://thumb.wikimedia.org; connect-src 'self' https://cloudflareinsights.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
